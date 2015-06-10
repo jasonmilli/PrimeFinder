@@ -1,0 +1,27 @@
+@primes;
+
+$check = 2;
+$prime = 1;
+$count = 1;
+
+while (1) {
+	$root = sqrt $check;
+
+	foreach(@primes) {
+		if($check%$_ == 0) {
+			$prime = 0;
+		}
+		if($_ >= $root) {
+			last;
+		}
+	}
+
+	if($prime) {
+		print $count.': '.$check." \n";
+		push @primes, $check;
+		$count ++;
+	} else {
+		$prime = 1;
+	}
+	$check++;
+}
